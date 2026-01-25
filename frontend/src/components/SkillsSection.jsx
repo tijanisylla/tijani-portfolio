@@ -19,13 +19,13 @@ const SkillCard = ({ skill, index, isInView }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ delay: index * 0.05 }}
-    className="group relative p-4 bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800 hover:border-cyan-500/30 rounded-xl transition-all duration-300"
+    className="group relative p-4 bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] border border-[var(--border-color)] hover:border-cyan-500/30 rounded-xl transition-all duration-300"
   >
     <div className="flex items-center justify-between mb-3">
-      <h4 className="text-white font-medium">{skill.name}</h4>
-      <span className="text-xs text-cyan-400 font-mono">{skill.level}</span>
+      <h4 className="text-[var(--text-primary)] font-medium">{skill.name}</h4>
+      <span className="text-xs text-cyan-500 font-mono">{skill.level}</span>
     </div>
-    <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
+    <div className="h-1.5 bg-[var(--bg-tertiary)] rounded-full overflow-hidden">
       <motion.div
         initial={{ width: 0 }}
         animate={isInView ? { width: "100%" } : {}}
@@ -41,9 +41,9 @@ const SkillsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="relative py-24 bg-zinc-950">
+    <section id="skills" className="relative py-24 bg-[var(--bg-primary)]">
       {/* Background accent */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--border-color)] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Section Header */}
@@ -51,7 +51,7 @@ const SkillsSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            className="text-cyan-400 font-mono text-sm mb-2"
+            className="text-cyan-500 font-mono text-sm mb-2"
           >
             {'// My Skills'}
           </motion.p>
@@ -59,15 +59,15 @@ const SkillsSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-4"
           >
-            Technical Expertise<span className="text-cyan-400">.</span>
+            Technical Expertise<span className="text-cyan-500">.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-zinc-400 max-w-2xl mx-auto"
+            className="text-[var(--text-secondary)] max-w-2xl mx-auto"
           >
             A comprehensive toolkit built over 4+ years of professional
             development experience.
@@ -83,8 +83,8 @@ const SkillsSection = () => {
             transition={{ delay: 0.3 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-3 h-3 bg-cyan-400 rounded-full" />
-              <h3 className="text-xl font-semibold text-white">Frontend Development</h3>
+              <div className="w-3 h-3 bg-cyan-500 rounded-full" />
+              <h3 className="text-xl font-semibold text-[var(--text-primary)]">Frontend Development</h3>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {skills.frontend.map((skill, index) => (
@@ -100,8 +100,8 @@ const SkillsSection = () => {
             transition={{ delay: 0.4 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-3 h-3 bg-cyan-400 rounded-full" />
-              <h3 className="text-xl font-semibold text-white">Backend Development</h3>
+              <div className="w-3 h-3 bg-cyan-500 rounded-full" />
+              <h3 className="text-xl font-semibold text-[var(--text-primary)]">Backend Development</h3>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {skills.backend.map((skill, index) => (
@@ -119,8 +119,8 @@ const SkillsSection = () => {
           className="mt-12"
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-3 h-3 bg-cyan-400 rounded-full" />
-            <h3 className="text-xl font-semibold text-white">Tools & Others</h3>
+            <div className="w-3 h-3 bg-cyan-500 rounded-full" />
+            <h3 className="text-xl font-semibold text-[var(--text-primary)]">Tools & Others</h3>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {skills.tools.map((skill, index) => (
