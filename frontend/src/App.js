@@ -1,5 +1,6 @@
 import React from "react";
 import "@/App.css";
+import { ThemeProvider } from "@/context/ThemeContext";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -11,18 +12,20 @@ import Footer from "@/components/Footer";
 
 function App() {
   return (
-    <div className="App bg-zinc-950 min-h-screen">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="App min-h-screen transition-colors duration-300 bg-[var(--bg-primary)]">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <ExperienceSection />
+          <ProjectsSection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 
