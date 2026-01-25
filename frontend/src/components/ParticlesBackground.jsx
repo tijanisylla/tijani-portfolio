@@ -1,8 +1,11 @@
 import React, { useCallback, useMemo } from "react";
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { useTheme } from "../context/ThemeContext";
 
 const ParticlesBackground = () => {
+  const { theme } = useTheme();
+
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
   }, []);
@@ -34,13 +37,13 @@ const ParticlesBackground = () => {
       },
       particles: {
         color: {
-          value: "#0ea5e9",
+          value: theme === "dark" ? "#0ea5e9" : "#0891b2",
         },
         links: {
-          color: "#0ea5e9",
+          color: theme === "dark" ? "#0ea5e9" : "#0891b2",
           distance: 150,
           enable: true,
-          opacity: 0.15,
+          opacity: theme === "dark" ? 0.15 : 0.1,
           width: 1,
         },
         move: {
@@ -58,10 +61,10 @@ const ParticlesBackground = () => {
             enable: true,
             area: 1000,
           },
-          value: 60,
+          value: theme === "dark" ? 60 : 40,
         },
         opacity: {
-          value: 0.3,
+          value: theme === "dark" ? 0.3 : 0.2,
         },
         shape: {
           type: "circle",
@@ -72,7 +75,7 @@ const ParticlesBackground = () => {
       },
       detectRetina: true,
     }),
-    []
+    [theme]
   );
 
   return (
