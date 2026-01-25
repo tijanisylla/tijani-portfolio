@@ -1,7 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Code2, Briefcase, Rocket, Globe } from "lucide-react";
 import { personalInfo } from "../data/mock";
 
@@ -33,7 +31,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="relative py-24 bg-zinc-950">
+    <section id="about" className="relative py-24 bg-[var(--bg-primary)]">
       {/* Background accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
 
@@ -48,13 +46,13 @@ const AboutSection = () => {
           >
             <div className="relative">
               {/* Terminal window */}
-              <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden shadow-2xl">
+              <div className="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-2xl">
                 {/* Terminal header */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-zinc-900 border-b border-zinc-800">
+                <div className="flex items-center gap-2 px-4 py-3 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
                   <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="ml-4 text-xs text-zinc-500 font-mono">
+                  <span className="ml-4 text-xs text-[var(--text-muted)] font-mono">
                     tijani@portfolio ~ %
                   </span>
                 </div>
@@ -65,17 +63,17 @@ const AboutSection = () => {
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ delay: 0.3, duration: 0.5 }}
                   >
-                    <p className="text-cyan-400">$ whoami</p>
-                    <p className="text-zinc-300 mt-2">{personalInfo.name}</p>
-                    <p className="text-zinc-500 mt-4">$ cat about.txt</p>
-                    <p className="text-zinc-400 mt-2 leading-relaxed">
+                    <p className="text-cyan-500">$ whoami</p>
+                    <p className="text-[var(--text-primary)] mt-2">{personalInfo.name}</p>
+                    <p className="text-[var(--text-muted)] mt-4">$ cat about.txt</p>
+                    <p className="text-[var(--text-secondary)] mt-2 leading-relaxed">
                       {personalInfo.bio}
                     </p>
-                    <p className="text-zinc-500 mt-4">$ echo $LANGUAGES</p>
-                    <p className="text-green-400 mt-2">
+                    <p className="text-[var(--text-muted)] mt-4">$ echo $LANGUAGES</p>
+                    <p className="text-green-500 mt-2">
                       {personalInfo.languages.join(" | ")}
                     </p>
-                    <p className="text-zinc-500 mt-4">$ _</p>
+                    <p className="text-[var(--text-muted)] mt-4">$ _</p>
                   </motion.div>
                 </div>
               </div>
@@ -98,7 +96,7 @@ const AboutSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 }}
-                className="text-cyan-400 font-mono text-sm mb-2"
+                className="text-cyan-500 font-mono text-sm mb-2"
               >
                 {'// About Me'}
               </motion.p>
@@ -106,16 +104,16 @@ const AboutSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4 }}
-                className="text-3xl sm:text-4xl font-bold text-white mb-4"
+                className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-4"
               >
                 Crafting Digital Experiences
-                <span className="text-cyan-400">.</span>
+                <span className="text-cyan-500">.</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5 }}
-                className="text-zinc-400 leading-relaxed"
+                className="text-[var(--text-secondary)] leading-relaxed"
               >
                 I'm a passionate full-stack developer based in Chicago, IL. I
                 specialize in building modern web applications using React,
@@ -132,17 +130,17 @@ const AboutSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.6 + index * 0.1 }}
-                  className="group p-4 bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800 hover:border-cyan-500/30 rounded-xl transition-all duration-300"
+                  className="group p-4 bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] border border-[var(--border-color)] hover:border-cyan-500/30 rounded-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
                     <div className="p-2 bg-cyan-500/10 rounded-lg group-hover:bg-cyan-500/20 transition-colors">
-                      <feature.icon className="w-5 h-5 text-cyan-400" />
+                      <feature.icon className="w-5 h-5 text-cyan-500" />
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold mb-1">
+                      <h3 className="text-[var(--text-primary)] font-semibold mb-1">
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-zinc-500">
+                      <p className="text-sm text-[var(--text-muted)]">
                         {feature.description}
                       </p>
                     </div>
