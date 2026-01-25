@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X, Terminal, Sun, Moon } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -15,6 +16,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +56,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/50"
+          ? "bg-[var(--bg-primary)]/80 backdrop-blur-xl border-b border-[var(--border-color)]"
           : "bg-transparent"
       }`}
     >
@@ -64,16 +66,16 @@ const Navbar = () => {
           <motion.a
             href="#home"
             onClick={(e) => handleClick(e, "#home")}
-            className="flex items-center gap-2 text-white font-bold text-xl"
+            className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-xl"
             whileHover={{ scale: 1.05 }}
           >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center">
               <Terminal className="w-5 h-5 text-white" />
             </div>
             <span className="font-mono">
-              <span className="text-cyan-400">&lt;</span>
+              <span className="text-cyan-500">&lt;</span>
               TS
-              <span className="text-cyan-400">/&gt;</span>
+              <span className="text-cyan-500">/&gt;</span>
             </span>
           </motion.a>
 
@@ -86,8 +88,8 @@ const Navbar = () => {
                 onClick={(e) => handleClick(e, link.href)}
                 className={`relative px-4 py-2 text-sm font-medium transition-colors ${
                   activeSection === link.href.substring(1)
-                    ? "text-cyan-400"
-                    : "text-zinc-400 hover:text-white"
+                    ? "text-cyan-500"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 }`}
                 whileHover={{ y: -2 }}
               >
@@ -95,7 +97,7 @@ const Navbar = () => {
                 {activeSection === link.href.substring(1) && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-cyan-400"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-cyan-500"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -103,24 +105,75 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <motion.a
-            href="#contact"
-            onClick={(e) => handleClick(e, "#contact")}
-            className="hidden md:block px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-semibold text-sm rounded-lg transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Let's Talk
-          </motion.a>
+          {/* Right side - Theme toggle and CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Theme Toggle */}
+            <motion.button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-cyan-500 hover:border-cyan-500/50 transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Toggle theme"
+            >
+              <AnimatePresence mode="wait">
+                {theme === "dark" ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Sun className="w-5 h-5" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Moon className="w-5 h-5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
+            {/* CTA Button */}
+            <motion.a
+              href="#contact"
+              onClick={(e) => handleClick(e, "#contact")}
+              className="px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-semibold text-sm rounded-lg transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Let's Talk
+            </motion.a>
+          </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-zinc-400 hover:text-white"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex md:hidden items-center gap-2">
+            {/* Mobile Theme Toggle */}
+            <motion.button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-secondary)]"
+              whileTap={{ scale: 0.95 }}
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </motion.button>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -131,7 +184,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-zinc-950/95 backdrop-blur-xl border-b border-zinc-800/50"
+            className="md:hidden bg-[var(--bg-primary)]/95 backdrop-blur-xl border-b border-[var(--border-color)]"
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
@@ -141,8 +194,8 @@ const Navbar = () => {
                   onClick={(e) => handleClick(e, link.href)}
                   className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     activeSection === link.href.substring(1)
-                      ? "bg-cyan-500/10 text-cyan-400"
-                      : "text-zinc-400 hover:text-white hover:bg-zinc-800/50"
+                      ? "bg-cyan-500/10 text-cyan-500"
+                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]"
                   }`}
                 >
                   {link.name}
