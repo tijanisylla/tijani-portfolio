@@ -10,7 +10,7 @@ const ProjectCard = ({ project, index }) => (
     animate={{ opacity: 1, scale: 1 }}
     exit={{ opacity: 0, scale: 0.9 }}
     transition={{ duration: 0.3, delay: index * 0.05 }}
-    className="group relative bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300"
+    className="group relative bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-2xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300"
   >
     {/* Image */}
     <div className="relative aspect-video overflow-hidden">
@@ -19,7 +19,7 @@ const ProjectCard = ({ project, index }) => (
         alt={project.title}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
 
       {/* Overlay Links */}
       <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -27,7 +27,7 @@ const ProjectCard = ({ project, index }) => (
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3 bg-zinc-950/80 hover:bg-cyan-500 border border-zinc-700 hover:border-cyan-500 rounded-full text-white transition-all"
+          className="p-3 bg-[var(--bg-primary)]/80 hover:bg-cyan-500 border border-[var(--border-color)] hover:border-cyan-500 rounded-full text-[var(--text-primary)] hover:text-zinc-950 transition-all"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -37,7 +37,7 @@ const ProjectCard = ({ project, index }) => (
           href={project.live}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3 bg-zinc-950/80 hover:bg-cyan-500 border border-zinc-700 hover:border-cyan-500 rounded-full text-white transition-all"
+          className="p-3 bg-[var(--bg-primary)]/80 hover:bg-cyan-500 border border-[var(--border-color)] hover:border-cyan-500 rounded-full text-[var(--text-primary)] hover:text-zinc-950 transition-all"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -48,10 +48,10 @@ const ProjectCard = ({ project, index }) => (
 
     {/* Content */}
     <div className="p-5">
-      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+      <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 group-hover:text-cyan-500 transition-colors">
         {project.title}
       </h3>
-      <p className="text-sm text-zinc-400 mb-4 line-clamp-2">
+      <p className="text-sm text-[var(--text-secondary)] mb-4 line-clamp-2">
         {project.description}
       </p>
 
@@ -60,7 +60,7 @@ const ProjectCard = ({ project, index }) => (
         {project.tech.map((tech) => (
           <span
             key={tech}
-            className="px-2 py-1 text-xs font-mono bg-zinc-800 text-zinc-400 rounded"
+            className="px-2 py-1 text-xs font-mono bg-[var(--bg-tertiary)] text-[var(--text-secondary)] rounded"
           >
             {tech}
           </span>
@@ -83,9 +83,9 @@ const ProjectsSection = () => {
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
   return (
-    <section id="projects" className="relative py-24 bg-zinc-950">
+    <section id="projects" className="relative py-24 bg-[var(--bg-primary)]">
       {/* Background accent */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--border-color)] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Section Header */}
@@ -93,7 +93,7 @@ const ProjectsSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            className="text-cyan-400 font-mono text-sm mb-2"
+            className="text-cyan-500 font-mono text-sm mb-2"
           >
             {'// My Work'}
           </motion.p>
@@ -101,15 +101,15 @@ const ProjectsSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-4"
           >
-            Featured Projects<span className="text-cyan-400">.</span>
+            Featured Projects<span className="text-cyan-500">.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-zinc-400 max-w-2xl mx-auto"
+            className="text-[var(--text-secondary)] max-w-2xl mx-auto"
           >
             A selection of projects I've worked on, showcasing my skills in
             full-stack development.
@@ -133,7 +133,7 @@ const ProjectsSection = () => {
               className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                 activeCategory === category.id
                   ? "bg-cyan-500 text-zinc-950"
-                  : "bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 border border-zinc-800"
+                  : "bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)] border border-[var(--border-color)]"
               }`}
             >
               {category.label}
@@ -163,7 +163,7 @@ const ProjectsSection = () => {
           >
             <motion.button
               onClick={() => setShowAll(!showAll)}
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-cyan-500/30 text-white font-medium rounded-xl transition-all"
+              className="group inline-flex items-center gap-2 px-6 py-3 bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] border border-[var(--border-color)] hover:border-cyan-500/30 text-[var(--text-primary)] font-medium rounded-xl transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

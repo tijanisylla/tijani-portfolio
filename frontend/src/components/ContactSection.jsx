@@ -57,9 +57,9 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="relative py-24 bg-zinc-900/30">
+    <section id="contact" className="relative py-24 bg-[var(--bg-secondary)]">
       {/* Background accent */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--border-color)] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Section Header */}
@@ -67,7 +67,7 @@ const ContactSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            className="text-cyan-400 font-mono text-sm mb-2"
+            className="text-cyan-500 font-mono text-sm mb-2"
           >
             {'// Get in Touch'}
           </motion.p>
@@ -75,15 +75,15 @@ const ContactSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-4"
           >
-            Let's Work Together<span className="text-cyan-400">.</span>
+            Let's Work Together<span className="text-cyan-500">.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-zinc-400 max-w-2xl mx-auto"
+            className="text-[var(--text-secondary)] max-w-2xl mx-auto"
           >
             Have a project in mind or want to collaborate? Feel free to reach
             out!
@@ -97,28 +97,28 @@ const ContactSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3 }}
           >
-            <h3 className="text-xl font-semibold text-white mb-6">Contact Information</h3>
+            <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-6">Contact Information</h3>
 
             <div className="space-y-4 mb-8">
               {contactInfo.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-zinc-800 rounded-xl hover:border-cyan-500/30 transition-colors"
+                  className="flex items-center gap-4 p-4 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-cyan-500/30 transition-colors"
                 >
                   <div className="p-3 bg-cyan-500/10 rounded-lg">
-                    <item.icon className="w-5 h-5 text-cyan-400" />
+                    <item.icon className="w-5 h-5 text-cyan-500" />
                   </div>
                   <div>
-                    <p className="text-sm text-zinc-500">{item.label}</p>
+                    <p className="text-sm text-[var(--text-muted)]">{item.label}</p>
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-white hover:text-cyan-400 transition-colors"
+                        className="text-[var(--text-primary)] hover:text-cyan-500 transition-colors"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-white">{item.value}</p>
+                      <p className="text-[var(--text-primary)]">{item.value}</p>
                     )}
                   </div>
                 </div>
@@ -127,7 +127,7 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div>
-              <h4 className="text-sm font-medium text-zinc-400 mb-4">Connect with me</h4>
+              <h4 className="text-sm font-medium text-[var(--text-secondary)] mb-4">Connect with me</h4>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
                   <motion.a
@@ -135,7 +135,7 @@ const ContactSection = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-zinc-900 hover:bg-cyan-500/20 border border-zinc-800 hover:border-cyan-500/50 rounded-xl text-zinc-400 hover:text-cyan-400 transition-all"
+                    className="p-3 bg-[var(--bg-card)] hover:bg-cyan-500/20 border border-[var(--border-color)] hover:border-cyan-500/50 rounded-xl text-[var(--text-secondary)] hover:text-cyan-500 transition-all"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
@@ -155,7 +155,7 @@ const ContactSection = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-zinc-400 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
                   Your Name
                 </label>
                 <input
@@ -165,13 +165,13 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-800 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
+                  className="w-full px-4 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
                   placeholder="John Doe"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-zinc-400 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
                   Your Email
                 </label>
                 <input
@@ -181,13 +181,13 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-800 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
+                  className="w-full px-4 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
                   placeholder="john@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-zinc-400 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
                   Your Message
                 </label>
                 <textarea
@@ -197,7 +197,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-800 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
