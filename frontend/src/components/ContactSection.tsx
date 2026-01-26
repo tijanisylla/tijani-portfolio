@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, LucideIcon } from "lucide-react";
 import { personalInfo } from "../data/mock";
 import LoadingSpinner from "./LoadingSpinner";
+import emailjs from "@emailjs/browser";
 
 interface ContactInfo {
   icon: LucideIcon;
@@ -33,20 +34,55 @@ const ContactSection: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError(""); // Clear error when user types
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setSubmitted(false), 3000);
+    setError("");
+
+    try {
+      // EmailJS configuration - you'll need to set these in your .env file
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || "";
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "";
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "";
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS configuration is missing. Please set up your environment variables.");
+      }
+
+      // Send email using EmailJS
+      // Note: Variable names must match your EmailJS template variables
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,           // Matches {{name}} in template
+          email: formData.email,         // Matches {{email}} in template
+          project: formData.message,     // Matches {{project}} in template (using message as project description)
+          reply_to: formData.email,      // For reply-to functionality
+        },
+        publicKey
+      );
+
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err) {
+      console.error("Email sending error:", err);
+      setIsSubmitting(false);
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to send message. Please try again or contact me directly at " + personalInfo.email
+      );
+    }
   };
 
   const contactInfo: ContactInfo[] = [
@@ -222,6 +258,18 @@ const ContactSection: React.FC = () => {
                 />
               </div>
 
+              {error && (
+                <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm">
+                  {error}
+                </div>
+              )}
+
+              {submitted && (
+                <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400 text-sm">
+                  Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
@@ -230,7 +278,10 @@ const ContactSection: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 {isSubmitting ? (
-                  <LoadingSpinner size="sm" />
+                  <>
+                    <LoadingSpinner size="sm" />
+                    Sending...
+                  </>
                 ) : submitted ? (
                   "Message Sent!"
                 ) : (

@@ -2,31 +2,32 @@ import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { skills, Skill } from "../data/mock";
 import { Code2, Server, Wrench, Sparkles } from "lucide-react";
+import { getAssetPath } from "../utils/paths";
 
 // Tech logo paths (local images from assets)
 const techLogos: Record<string, string> = {
-  "React": "/images/skills/react.svg",
-  "TypeScript": "/images/skills/typescript.svg",
-  "JavaScript": "/images/skills/javascript.svg",
-  "HTML5": "/images/skills/html5.svg",
-  "CSS3": "/images/skills/css3.svg",
-  "Redux": "/images/skills/redux.svg",
-  "WordPress": "/images/skills/wordpress.svg",
-  "Bootstrap": "/images/skills/bootstrap.svg",
-  "Figma": "/images/skills/figma.svg",
-  "Node.js": "/images/skills/nodejs.svg",
-  "PostgreSQL": "/images/skills/postgresql.svg",
-  "Python": "/images/skills/python.svg",
-  "MongoDB": "/images/skills/mongodb.svg",
-  "MySQL": "/images/skills/mysql.svg",
-  "AWS": "/images/skills/aws.svg",
-  "Docker": "/images/skills/docker.svg",
-  "Firebase": "/images/skills/firebase.svg",
-  "PHP": "/images/skills/php.svg",
-  "Git": "/images/skills/git.svg",
-  "Postman": "/images/skills/postman.svg",
-  "Heroku": "/images/skills/heroku.svg",
-  "Testing": "/images/skills/testing.svg",
+  "React": getAssetPath("/images/skills/react.svg"),
+  "TypeScript": getAssetPath("/images/skills/typescript.svg"),
+  "JavaScript": getAssetPath("/images/skills/javascript.svg"),
+  "HTML5": getAssetPath("/images/skills/html5.svg"),
+  "CSS3": getAssetPath("/images/skills/css3.svg"),
+  "Redux": getAssetPath("/images/skills/redux.svg"),
+  "WordPress": getAssetPath("/images/skills/wordpress.svg"),
+  "Bootstrap": getAssetPath("/images/skills/bootstrap.svg"),
+  "Figma": getAssetPath("/images/skills/figma.svg"),
+  "Node.js": getAssetPath("/images/skills/nodejs.svg"),
+  "PostgreSQL": getAssetPath("/images/skills/postgresql.svg"),
+  "Python": getAssetPath("/images/skills/python.svg"),
+  "MongoDB": getAssetPath("/images/skills/mongodb.svg"),
+  "MySQL": getAssetPath("/images/skills/mysql.svg"),
+  "AWS": getAssetPath("/images/skills/aws.svg"),
+  "Docker": getAssetPath("/images/skills/docker.svg"),
+  "Firebase": getAssetPath("/images/skills/firebase.svg"),
+  "PHP": getAssetPath("/images/skills/php.svg"),
+  "Git": getAssetPath("/images/skills/git.svg"),
+  "Postman": getAssetPath("/images/skills/postman.svg"),
+  "Heroku": getAssetPath("/images/skills/heroku.svg"),
+  "Testing": getAssetPath("/images/skills/testing.svg"),
 };
 
 const skillLevelBadges: Record<string, string> = {
