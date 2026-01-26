@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tijani-portfolio/static/css/main.f0a32b22.css",
-    "main.js": "/tijani-portfolio/static/js/main.4806d9da.js",
-    "index.html": "/tijani-portfolio/index.html",
-    "main.f0a32b22.css.map": "/tijani-portfolio/static/css/main.f0a32b22.css.map",
-    "main.4806d9da.js.map": "/tijani-portfolio/static/js/main.4806d9da.js.map"
+    "main.css": "/static/css/main.f0a32b22.css",
+    "main.js": "/static/js/main.b332df32.js",
+    "index.html": "/index.html",
+    "main.f0a32b22.css.map": "/static/css/main.f0a32b22.css.map",
+    "main.b332df32.js.map": "/static/js/main.b332df32.js.map"
   },
   "entrypoints": [
     "static/css/main.f0a32b22.css",
-    "static/js/main.4806d9da.js"
+    "static/js/main.b332df32.js"
   ]
 }
