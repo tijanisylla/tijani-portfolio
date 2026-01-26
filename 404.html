@@ -30,9 +30,11 @@
             return segment !== '';
         });
         
-        // If we're on the root or only on the repo name, go to index.html
+        // If we're on the root or only on the repo name, redirect to index.html
         if (pathSegments.length <= pathSegmentsToKeep) {
-            // Already on root, just load index.html
+            // Already on root, redirect to index.html
+            var basePath = l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/');
+            l.replace(basePath + (basePath.endsWith('/') ? '' : '/') + 'index.html');
             return;
         }
         
