@@ -110,7 +110,7 @@ const HeroSection: React.FC = () => {
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
               </motion.a>
               <motion.a
-                href="/resume.pdf"
+                href={`${process.env.PUBLIC_URL || ''}/resume.pdf`}
                 download="Tijani_Sylla_Resume.pdf"
                 className="group flex items-center gap-2 px-8 py-4 bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] text-[var(--text-primary)] font-semibold rounded-xl border border-[var(--border-color)] transition-colors"
                 whileHover={{ scale: 1.05 }}
@@ -170,7 +170,7 @@ const HeroSection: React.FC = () => {
               {/* Profile image container */}
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/20">
                 <img
-                  src="/avatar.png"
+                  src={`${process.env.PUBLIC_URL || ''}/avatar.png`}
                   alt="Tijani Sylla"
                   className="w-full h-full object-cover"
                 />

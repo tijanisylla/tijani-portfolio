@@ -1,5 +1,14 @@
 // Mock data for Tijani Sylla's Portfolio
 
+// Helper to get asset path with base URL
+const assetPath = (path: string): string => {
+  // PUBLIC_URL is empty string for custom domain, '/tijani-portfolio' for GitHub Pages
+  const baseUrl = process.env.PUBLIC_URL || '';
+  // Ensure path starts with /
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return baseUrl ? `${baseUrl}${cleanPath}` : cleanPath;
+};
+
 export interface PersonalInfo {
   name: string;
   title: string;
@@ -210,7 +219,7 @@ export const projects: Project[] = [
     title: "Tasks Progress",
     category: "web",
     description: "A task management application with progress tracking and analytics.",
-    image: "/images/projects/tasks-progress.jpg",
+    image: assetPath("/images/projects/tasks-progress.jpg"),
     tech: ["React", "Node.js", "MongoDB"],
     github: "#",
     live: "#"
@@ -220,7 +229,7 @@ export const projects: Project[] = [
     title: "RFID System",
     category: "web",
     description: "RFID-based tracking and management system for inventory control.",
-    image: "/images/projects/rfid-system.jpg",
+    image: assetPath("/images/projects/rfid-system.jpg"),
     tech: ["React", "Python", "PostgreSQL"],
     github: "#",
     live: "#"
@@ -230,7 +239,7 @@ export const projects: Project[] = [
     title: "Chat GPT-3 AI",
     category: "ai",
     description: "AI-powered chat application leveraging OpenAI's GPT-3 API.",
-    image: "/images/projects/chat-gpt-3-ai.jpg",
+    image: assetPath("/images/projects/chat-gpt-3-ai.jpg"),
     tech: ["React", "OpenAI API", "Node.js"],
     github: "#",
     live: "#"
@@ -240,7 +249,7 @@ export const projects: Project[] = [
     title: "Movie App",
     category: "web",
     description: "Movie discovery platform with search, ratings, and recommendations.",
-    image: "/images/projects/movie-app.jpg",
+    image: assetPath("/images/projects/movie-app.jpg"),
     tech: ["React", "TMDB API", "CSS"],
     github: "#",
     live: "#"
@@ -250,7 +259,7 @@ export const projects: Project[] = [
     title: "Calculator App",
     category: "mobile",
     description: "Feature-rich calculator with scientific functions and history.",
-    image: "/images/projects/calculator-app.jpg",
+    image: assetPath("/images/projects/calculator-app.jpg"),
     tech: ["React Native", "JavaScript"],
     github: "#",
     live: "#"
@@ -260,7 +269,7 @@ export const projects: Project[] = [
     title: "Snake Game",
     category: "game",
     description: "Classic snake game with modern graphics and leaderboard.",
-    image: "/images/projects/snake-game.jpg",
+    image: assetPath("/images/projects/snake-game.jpg"),
     tech: ["JavaScript", "Canvas", "CSS"],
     github: "#",
     live: "#"
@@ -270,7 +279,7 @@ export const projects: Project[] = [
     title: "Retro Draw",
     category: "web",
     description: "Pixel art drawing tool with retro aesthetics and export options.",
-    image: "/images/projects/retro-draw.jpg",
+    image: assetPath("/images/projects/retro-draw.jpg"),
     tech: ["React", "Canvas", "CSS"],
     github: "#",
     live: "#"
@@ -280,7 +289,7 @@ export const projects: Project[] = [
     title: "UserHub",
     category: "web",
     description: "User management dashboard with authentication and role-based access.",
-    image: "/images/projects/userhub.jpg",
+    image: assetPath("/images/projects/userhub.jpg"),
     tech: ["React", "Node.js", "PostgreSQL"],
     github: "#",
     live: "#"
@@ -290,7 +299,7 @@ export const projects: Project[] = [
     title: "Art Collector",
     category: "web",
     description: "Art gallery application with collection management and search.",
-    image: "/images/projects/art-collector.jpg",
+    image: assetPath("/images/projects/art-collector.jpg"),
     tech: ["React", "Harvard Art API", "CSS"],
     github: "#",
     live: "#"
@@ -300,7 +309,7 @@ export const projects: Project[] = [
     title: "Fitness Tracker",
     category: "web",
     description: "Workout tracking app with progress visualization and goal setting.",
-    image: "/images/projects/fitness-tracker.jpg",
+    image: assetPath("/images/projects/fitness-tracker.jpg"),
     tech: ["React", "Node.js", "MongoDB"],
     github: "#",
     live: "#"

@@ -68,23 +68,29 @@ function AppContent() {
 }
 
 function App() {
-  // Set basename for GitHub Pages project site
-  // Extract pathname from homepage URL or use default
-  let basename = '/tijani-portfolio';
-  if (process.env.PUBLIC_URL) {
-    try {
-      const url = new URL(process.env.PUBLIC_URL);
-      basename = url.pathname.endsWith('/') ? url.pathname.slice(0, -1) : url.pathname;
-    } catch (e) {
-      // If PUBLIC_URL is just a path, use it directly
-      basename = process.env.PUBLIC_URL.startsWith('/') 
-        ? process.env.PUBLIC_URL 
-        : '/tijani-portfolio';
+  // Set basename dynamically based on the current location
+  // For custom domain (tijanisylla.dev): use '/' (no subdirectory)
+  // For GitHub Pages subdomain: use '/tijani-portfolio'
+  // For localhost: use '/' (no subdirectory)
+  const getBasename = (): string => {
+    const hostname = window.location.hostname;
+    
+    // Local development
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname.startsWith('192.168.')) {
+      return '/';
     }
-  }
+    
+    // Custom domain
+    if (hostname === 'tijanisylla.dev' || hostname === 'www.tijanisylla.dev') {
+      return '/';
+    }
+    
+    // GitHub Pages subdomain
+    return '/tijani-portfolio';
+  };
   
   return (
-    <BrowserRouter basename={basename}>
+    <BrowserRouter basename={getBasename()}>
       <ErrorBoundary>
         <RedirectHandler />
         <AppContent />
