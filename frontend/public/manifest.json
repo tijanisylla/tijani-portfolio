@@ -1,0 +1,18 @@
+{
+  "short_name": "Tijani Sylla",
+  "name": "Tijani Sylla - Software Engineer Portfolio",
+  "description": "Full-Stack Developer Portfolio showcasing projects and experience",
+  "icons": [
+    {
+      "src": "/avatar.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#06b6d4",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary"
+}
