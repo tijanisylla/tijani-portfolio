@@ -216,73 +216,73 @@ export const education: Education[] = [
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Tasks Progress",
-    category: "web",
-    description: "A task management application with progress tracking and analytics.",
-    image: assetPath("/images/projects/tasks-progress.jpg"),
-    tech: ["React", "Node.js", "MongoDB"],
-    github: "#",
-    live: "#"
-  },
-  {
-    id: 2,
-    title: "RFID System",
-    category: "web",
-    description: "RFID-based tracking and management system for inventory control.",
-    image: assetPath("/images/projects/rfid-system.jpg"),
-    tech: ["React", "Python", "PostgreSQL"],
-    github: "#",
-    live: "#"
-  },
-  {
-    id: 3,
     title: "Chat GPT-3 AI",
     category: "ai",
     description: "AI-powered chat application leveraging OpenAI's GPT-3 API.",
     image: assetPath("/images/projects/chat-gpt-3-ai.jpg"),
     tech: ["React", "OpenAI API", "Node.js"],
-    github: "#",
-    live: "#"
+    github: "https://github.com/tijanisylla/chat-gpt",
+    live: "https://chat-gpt-clone-gilt.vercel.app/"
   },
   {
-    id: 4,
+    id: 2,
+    title: "Calculator phone app",
+    category: "mobile",
+    description: "Feature-rich calculator with scientific functions and history.",
+    image: assetPath("/images/projects/calculator-app.jpg"),
+    tech: ["React Native", "JavaScript"],
+    github: "https://github.com/tijanisylla/sylla-calculator",
+    live: "https://github.com/tijanisylla/sylla-calculator"
+  },
+  {
+    id: 3,
     title: "Movie App",
     category: "web",
     description: "Movie discovery platform with search, ratings, and recommendations.",
     image: assetPath("/images/projects/movie-app.jpg"),
     tech: ["React", "TMDB API", "CSS"],
-    github: "#",
-    live: "#"
+    github: "https://github.com/tijanisylla/movie-app",
+    live: "https://tijanisylla.github.io/movie-app"
+  },
+  {
+    id: 4,
+    title: "Calculator",
+    category: "web",
+    description: "Calculator web app with clean interface and basic operations.",
+    image: assetPath("/images/projects/calculator-app.jpg"),
+    tech: ["JavaScript", "HTML", "CSS"],
+    github: "https://github.com/tijanisylla",
+    live: "https://calculator-sylla.netlify.app"
   },
   {
     id: 5,
-    title: "Calculator App",
-    category: "mobile",
-    description: "Feature-rich calculator with scientific functions and history.",
-    image: assetPath("/images/projects/calculator-app.jpg"),
-    tech: ["React Native", "JavaScript"],
-    github: "#",
-    live: "#"
-  },
-  {
-    id: 6,
-    title: "Snake Game",
+    title: "Snake",
     category: "game",
     description: "Classic snake game with modern graphics and leaderboard.",
     image: assetPath("/images/projects/snake-game.jpg"),
     tech: ["JavaScript", "Canvas", "CSS"],
-    github: "#",
-    live: "#"
+    github: "https://github.com/tijanisylla",
+    live: "https://snake-sylla.netlify.app"
   },
   {
-    id: 7,
-    title: "Retro Draw",
+    id: 6,
+    title: "Retro-draw",
     category: "web",
     description: "Pixel art drawing tool with retro aesthetics and export options.",
     image: assetPath("/images/projects/retro-draw.jpg"),
     tech: ["React", "Canvas", "CSS"],
-    github: "#",
-    live: "#"
+    github: "https://github.com/tijanisylla",
+    live: "https://retro-draw-sylla.netlify.app"
+  },
+  {
+    id: 7,
+    title: "Stranger-Things",
+    category: "web",
+    description: "Stranger Things themed web experience.",
+    image: assetPath("/images/projects/movie-app.jpg"),
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/tijanisylla",
+    live: "https://stranger-things1.netlify.app"
   },
   {
     id: 8,
@@ -291,28 +291,48 @@ export const projects: Project[] = [
     description: "User management dashboard with authentication and role-based access.",
     image: assetPath("/images/projects/userhub.jpg"),
     tech: ["React", "Node.js", "PostgreSQL"],
-    github: "#",
-    live: "#"
+    github: "https://github.com/tijanisylla",
+    live: "https://userhub-js.netlify.app"
   },
   {
     id: 9,
-    title: "Art Collector",
+    title: "Art-collector",
     category: "web",
     description: "Art gallery application with collection management and search.",
     image: assetPath("/images/projects/art-collector.jpg"),
     tech: ["React", "Harvard Art API", "CSS"],
-    github: "#",
-    live: "#"
+    github: "https://github.com/tijanisylla",
+    live: "https://art-collector.netlify.app"
   },
   {
     id: 10,
-    title: "Fitness Tracker",
+    title: "Animation",
+    category: "web",
+    description: "Animation and interactive web demos.",
+    image: assetPath("/images/projects/retro-draw.jpg"),
+    tech: ["JavaScript", "CSS", "HTML"],
+    github: "https://github.com/tijanisylla",
+    live: "https://animation-js-sylla.netlify.app"
+  },
+  {
+    id: 11,
+    title: "Fitness",
     category: "web",
     description: "Workout tracking app with progress visualization and goal setting.",
     image: assetPath("/images/projects/fitness-tracker.jpg"),
     tech: ["React", "Node.js", "MongoDB"],
-    github: "#",
-    live: "#"
+    github: "https://github.com/tijanisylla",
+    live: "https://fitnesstrackerr.netlify.app"
+  },
+  {
+    id: 12,
+    title: "Tasks Progress",
+    category: "web",
+    description: "A task management application with progress tracking and analytics.",
+    image: assetPath("/images/projects/tasks-progress.jpg"),
+    tech: ["React", "Node.js", "MongoDB"],
+    github: "https://github.com/tijanisylla",
+    live: "https://main.d18m2yn7ohwgrq.amplifyapp.com/"
   }
 ];
 
