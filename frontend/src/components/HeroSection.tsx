@@ -164,18 +164,17 @@ const HeroSection: React.FC = () => {
                 className="absolute -inset-4 rounded-full border-2 border-dashed border-cyan-500/30"
               />
               
-              {/* Glowing background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 rounded-full blur-2xl" />
-              
               {/* Profile image container */}
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-cyan-500/50 shadow-2xl shadow-cyan-500/20">
+              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80
+                              rounded-full overflow-hidden
+                              bg-gradient-to-br from-cyan-900/60 via-slate-900 to-black
+                              border-4 border-cyan-500/50
+                              shadow-2xl shadow-cyan-500/20">
                 <img
-                  src={`${process.env.PUBLIC_URL || ''}/avatar.png`}
+                  src={`${process.env.PUBLIC_URL || ''}/avatar.png?v=4`}
                   alt="Tijani Sylla"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[50%_0%] scale-80"
                 />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/10 to-transparent" />
               </div>
 
               {/* Floating badges */}
