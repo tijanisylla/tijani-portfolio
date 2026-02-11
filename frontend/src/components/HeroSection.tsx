@@ -166,7 +166,7 @@ const HeroSection: React.FC = () => {
               
               {/* Profile image container */}
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80
-                              rounded-full overflow-hidden
+                              rounded-full overflow-hidden 
                               bg-gradient-to-br from-cyan-900/60 via-slate-900 to-black
                               border-4 border-cyan-500/50
                               shadow-2xl shadow-cyan-500/20">
