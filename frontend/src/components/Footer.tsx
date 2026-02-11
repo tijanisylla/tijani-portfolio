@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, Terminal, ArrowUp } from "lucide-react";
+import { Terminal, ArrowUp } from "lucide-react";
 import { personalInfo } from "../data/mock";
 
 const Footer: React.FC = () => {
@@ -40,11 +40,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Center - Made with love */}
-          <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
-            <span>Crafted with</span>
-            <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-            <span>using React & TypeScript</span>
-          </div>
+          <p className="text-sm text-[var(--text-muted)]">
+            Built with React, TypeScript & late-night code
+          </p>
 
           {/* Scroll to top */}
           <motion.button
