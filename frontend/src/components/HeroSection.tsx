@@ -110,8 +110,8 @@ const HeroSection: React.FC = () => {
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
               </motion.a>
               <motion.a
-                href={`${process.env.PUBLIC_URL || ''}/resume.pdf`}
-                download="Tijani_Sylla_Resume.pdf"
+                href={`${process.env.PUBLIC_URL || ''}/Tijani_Sylla5_-_SOFTWARE_ENGINEER.pdf`}
+                download="Tijani_Sylla5_-_SOFTWARE_ENGINEER.pdf"
                 className="group flex items-center gap-2 px-8 py-4 bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] text-[var(--text-primary)] font-semibold rounded-xl border border-[var(--border-color)] transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -62,7 +62,7 @@ tijani-portfolio/
 │   ├── public/       # Static assets
 │   │   ├── images/   # Local images (skills, projects)
 │   │   ├── avatar.png
-│   │   └── resume.pdf
+│   │   └── Tijani_Sylla5_-_SOFTWARE_ENGINEER.pdf
 │   └── src/
 │       ├── components/  # React components
 │       ├── context/     # React context (Theme)

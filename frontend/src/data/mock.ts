@@ -95,7 +95,7 @@ export const personalInfo: PersonalInfo = {
   },
   stats: {
     experience: "4+",
-    projects: "35+",
+    projects: "38+",
     support: "24/7"
   },
   languages: ["English", "French", "Spanish", "Arabic"]
@@ -138,18 +138,19 @@ export const experiences: Experience[] = [
     title: "Software Engineer",
     company: "Multiple, Inc",
     location: "Chicago, IL",
-    period: "Jun 2023 - Jan 2024",
+    period: "Jun 2022 - Jan 2024",
     description: [
       "Contributed to the development and optimization of HTML email campaigns, resulting in a significant increase in click-through rates and customer engagement.",
       "Played a key role in the implementation of WordPress projects, resulting in noticeable improvements in website loading times and user experience.",
       "Conceptualized and executed banner ad campaigns, leading to a substantial increase in brand visibility and customer acquisition.",
-      "Collaborated with team members and clients to understand unique requirements and deliver tailored digital solutions."
+      "Collaborated with team members and clients to understand unique requirements and deliver tailored digital solutions, resulting in high levels of client satisfaction.",
+      "Proactively identified and resolved technical issues in HTML emails, WordPress sites, and banner ads, ensuring optimal performance and user experience."
     ],
     tech: ["React", "WordPress", "HTML Email", "JavaScript"]
   },
   {
     id: 2,
-    title: "Software Engineer (Contract)",
+    title: "Software Engineer (Short-Term Contract)",
     company: "Nexus",
     location: "Chicago, IL",
     period: "Jan 2023 - Mar 2023",
@@ -166,13 +167,26 @@ export const experiences: Experience[] = [
     title: "Software Engineer",
     company: "FoodMix Marketing",
     location: "Elmhurst, IL",
-    period: "Jan 2022 - Mar 2022",
+    period: "Jan 2021 - Mar 2022",
     description: [
       "Maintained client website content pipeline using WordPress, ensuring alignment with company design standards.",
       "Utilized MJML for creating and updating client emails, optimizing communication strategies.",
       "Validated mobile responsiveness using Email Acid across popular web browsers (Chrome, Firefox, IE, etc.)."
     ],
     tech: ["WordPress", "MJML", "HTML", "CSS"]
+  },
+  {
+    id: 4,
+    title: "Customer Service",
+    company: "Hammacher Schlemmer",
+    location: "Niles, IL",
+    period: "Nov 2021 - Dec 2021",
+    description: [
+      "Engaged directly with customers, addressing inquiries and resolving concerns proactively.",
+      "Managed order processing via email and phone channels, prioritizing clear communication.",
+      "Prioritized problem resolution to enhance customer satisfaction and deliver a strong service experience."
+    ],
+    tech: ["Customer support", "Email", "Phone"]
   }
 ];
 
@@ -214,6 +228,50 @@ export const education: Education[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    id: 13,
+    title: "XIMI's Auto Repair",
+    category: "web",
+    description:
+      "Full-featured auto repair and car wash business site: services, booking context, and brand presence for a Chicago shop.",
+    image: assetPath("/images/projects/ximis.png"),
+    tech: ["React", "Node.js", "JavaScript"],
+    github: "https://github.com/tijanisylla/Ximis-repair",
+    live: "https://ximisautorepair.com/"
+  },
+  {
+    id: 14,
+    title: "Fade By Tom",
+    category: "web",
+    description:
+      "Family hair salon marketing site with classic cuts and modern vibe—showcasing services and Chicago location.",
+    image: assetPath("/images/projects/fadeinbytom.png"),
+    tech: ["React", "JavaScript", "CSS"],
+    github: "https://github.com/tijanisylla/Fade-in-by-tom",
+    live: "https://fadeinbytome.netlify.app/"
+  },
+  {
+    id: 15,
+    title: "Al Wehda Medical Center",
+    category: "web",
+    description:
+      "Bilingual medical center web presence with services and patient-facing information (English / Arabic).",
+    image: assetPath("/images/projects/al-wehda-medical.jpg"),
+    tech: ["React", "Python", "JavaScript"],
+    github: "https://github.com/tijanisylla/al-wehda-medical-center",
+    live: "https://al-wehda-medical.netlify.app/"
+  },
+  {
+    id: 16,
+    title: "Rosa Pérez — Aesthetics & Micropigmentation",
+    category: "web",
+    description:
+      "Your Beauty, Our Passion. Discover personalized beauty treatments in the heart of Seville. Specialists in micropigmentation, manicures and facial care.",
+    image: assetPath("/images/projects/aesthetics-micropigmentation.png"),
+    tech: ["React", "Python", "JavaScript"],
+    github: "https://github.com/tijanisylla/estetica-micropigmentacion",
+    live: "https://rosaperez-esteticaymicro.netlify.app/"
+  },
   {
     id: 1,
     title: "Chat GPT-3 AI",
@@ -283,16 +341,6 @@ export const projects: Project[] = [
     tech: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/tijanisylla",
     live: "https://stranger-things1.netlify.app"
-  },
-  {
-    id: 8,
-    title: "UserHub",
-    category: "web",
-    description: "User management dashboard with authentication and role-based access.",
-    image: assetPath("/images/projects/userhub.jpg"),
-    tech: ["React", "Node.js", "PostgreSQL"],
-    github: "https://github.com/tijanisylla",
-    live: "https://userhub-js.netlify.app"
   },
   {
     id: 9,
